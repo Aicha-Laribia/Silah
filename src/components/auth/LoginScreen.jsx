@@ -9,7 +9,7 @@ export default function LoginScreen() {
   const { login, locale, toggleLocale } = useApp()
   const [step, setStep] = useState('role')
   const [selectedRole, setSelectedRole] = useState(null)
-  const [form, setForm] = useState({ name: '', sex: '', email: '', password: '' })
+  const [form, setForm] = useState({ name: '', sex: '', age: '', bloodType: '', email: '', password: '' })
   const [isLogin, setIsLogin] = useState(false)
 
   const handleRoleSelect = (role) => {
@@ -20,6 +20,7 @@ export default function LoginScreen() {
   const handleSubmit = () => {
     if (!form.name && !isLogin) return
     if (!form.sex && !isLogin) return
+    if (!form.age && !isLogin) return
     if (!form.email || !form.password) return
     login({ ...form, role: selectedRole, id: Date.now() })
   }
@@ -129,6 +130,31 @@ export default function LoginScreen() {
                     <option value="female">{t(locale, 'login.female')}</option>
                     <option value="prefer-not">{t(locale, 'login.preferNot')}</option>
                   </select>
+                  <select
+                    className="premium-input"
+                    style={styles.input}
+                    value={form.bloodType}
+                    onChange={e => setForm({ ...form, bloodType: e.target.value })}
+                    aria-label={t(locale, 'login.bloodType')}
+                  >
+                    <option value="">{t(locale, 'login.bloodTypePlaceholder')}</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                  </select>
+                  <input
+                    className="premium-input"
+                    style={styles.input}
+                    type="number"
+                    placeholder={t(locale, 'login.agePlaceholder')}
+                    value={form.age}
+                    onChange={e => setForm({ ...form, age: e.target.value })}
+                  />
                 </>
               )}
               <input
@@ -146,6 +172,15 @@ export default function LoginScreen() {
                 placeholder={t(locale, 'login.password')}
                 value={form.password}
                 onChange={e => setForm({ ...form, password: e.target.value })}
+              />
+              {/* retype password */}
+              <input
+                className="premium-input"
+                style={styles.input}
+                type="password"
+                placeholder={t(locale, 'login.confirmPassword')}
+                value={form.confirmPassword}
+                onChange={e => setForm({ ...form, confirmPassword: e.target.value })}
               />
 
               <GradientButton style={styles.submitBtn} onClick={handleSubmit}>
