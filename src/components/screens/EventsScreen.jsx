@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AnimatedSection, FloatingActionButton, GlassCard, GradientButton, Page, PageHeader, SoftModal } from '../ui/Primitives'
 import { ThemedIcon, eventIcons, profileIcons } from '../ui/ThemedIcon'
 import { useApp } from '../../hooks/useApp'
-import { EVENTS, EVENT_ICONS as EVENT_STYLES } from '../../data/mockData'
+import { EVENTS, EVENT_ICONS as EVENT_STYLES, localizedField } from '../../data/mockData'
 import { t } from '../../data/translations'
 
 export default function EventsScreen() {
@@ -24,7 +24,7 @@ export default function EventsScreen() {
   return (
     <Page variant="community">
       <PageHeader
-        eyebrow="Community"
+        eyebrow={t(locale, 'events.eyebrow')}
         title={t(locale, 'events.title')}
         subtitle={t(locale, 'events.sub')}
         action={<FloatingActionButton onClick={() => setShowCreate(true)}>+</FloatingActionButton>}
@@ -58,16 +58,16 @@ export default function EventsScreen() {
                   <div style={{ ...styles.eventIcon, background: info.bg, color: info.color }}>
                     <ThemedIcon icon={eventIcons[event.type]} size={22} strokeWidth={2.15} />
                   </div>
-                  <div style={styles.cardInfo}>
-                    <div style={styles.cardTitle}>{locale === 'ar' ? event.titleAr || event.title : event.title}</div>
+                  <div style={{ ...styles.cardInfo, ...(event.womenOnly ? (locale === 'ar' ? { paddingLeft: 92, paddingRight: 0 } : { paddingRight: 92, paddingLeft: 0 }) : {}) }}>
+                    <div style={styles.cardTitle}>{localizedField(event, 'title', locale)}</div>
                     <div style={styles.metaGrid}>
-                      <span style={styles.metaPill}><ThemedIcon icon={profileIcons.time} size={13} /> {event.time}</span>
-                      <span style={styles.metaPill}><ThemedIcon icon={profileIcons.location} size={13} /> {event.location}</span>
+                      <span style={styles.metaPill}><ThemedIcon icon={profileIcons.time} size={13} /> {localizedField(event, 'time', locale)}</span>
+                      <span style={styles.metaPill}><ThemedIcon icon={profileIcons.location} size={13} /> {localizedField(event, 'location', locale)}</span>
                     </div>
                   </div>
                 </div>
 
-                <p style={styles.cardDesc}>{locale === 'ar' ? event.descriptionAr || event.description : event.description}</p>
+                <p style={styles.cardDesc}>{localizedField(event, 'description', locale)}</p>
 
                 <div style={styles.cardFooter}>
                   <div style={styles.attendees}>
@@ -128,7 +128,7 @@ const styles = {
   womenBadge: { position: 'absolute', top: 14, right: 14, fontSize: 11, fontWeight: 800, color: 'var(--gold-700)', background: 'rgba(212,160,23,0.13)', padding: '5px 10px', borderRadius: 999 },
   cardTop: { display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 12 },
   eventIcon: { width: 48, height: 48, borderRadius: 21, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 21, flexShrink: 0, boxShadow: '0 10px 20px rgba(15,45,28,0.06)' },
-  cardInfo: { flex: 1, minWidth: 0, paddingRight: 68 },
+  cardInfo: { flex: 1, minWidth: 0 },
   cardTitle: { fontSize: 15, fontWeight: 900, color: 'var(--ink)', lineHeight: 1.35, marginBottom: 8 },
   metaGrid: { display: 'flex', flexWrap: 'wrap', gap: 6 },
   metaPill: { display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 9px', borderRadius: 999, background: 'rgba(16,34,31,0.05)', color: 'var(--ink-60)', fontSize: 11, lineHeight: 1.25 },
@@ -140,6 +140,6 @@ const styles = {
   attendeesCount: { fontSize: 12, color: 'var(--ink-60)' },
   joinBtn: { border: '1px solid rgba(22,155,125,0.18)', borderRadius: 20, background: 'rgba(239,250,245,0.9)', color: 'var(--teal-800)', padding: '10px 14px', fontSize: 12, fontWeight: 900, cursor: 'pointer', transition: 'all 0.25s ease' },
   joinBtnActive: { background: 'linear-gradient(135deg, var(--teal-500), var(--green-700))', color: 'var(--white)', boxShadow: '0 10px 20px rgba(22,155,125,0.18)' },
-  modalTitle: { fontSize: 20, color: 'var(--ink)', marginBottom: 16 },
+  modalTitle: { fontSize: 20, color: 'var(--ink)', marginBottom: 16, paddingInlineEnd: 48 },
   formField: { display: 'block', padding: '13px 15px', marginBottom: 10, fontSize: 14, resize: 'none' }
 }

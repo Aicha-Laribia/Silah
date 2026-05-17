@@ -173,15 +173,16 @@ export default function LoginScreen() {
                 value={form.password}
                 onChange={e => setForm({ ...form, password: e.target.value })}
               />
-              {/* retype password */}
-              <input
-                className="premium-input"
-                style={styles.input}
-                type="password"
-                placeholder={t(locale, 'login.confirmPassword')}
-                value={form.confirmPassword}
-                onChange={e => setForm({ ...form, confirmPassword: e.target.value })}
-              />
+              {!isLogin && (
+                <input
+                  className="premium-input"
+                  style={styles.input}
+                  type="password"
+                  placeholder={t(locale, 'login.confirmPassword')}
+                  value={form.confirmPassword}
+                  onChange={e => setForm({ ...form, confirmPassword: e.target.value })}
+                />
+              )}
 
               <GradientButton style={styles.submitBtn} onClick={handleSubmit}>
                 {isLogin ? t(locale, 'login.signInButton') : t(locale, 'login.join')}

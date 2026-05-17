@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AnimatedSection, GlassCard, GradientButton, Page } from '../ui/Primitives'
 import { ThemedIcon, eventIcons } from '../ui/ThemedIcon'
 import { useApp } from '../../hooks/useApp'
-import { getTodayContent } from '../../data/mockData'
+import { getTodayContent, localizedField } from '../../data/mockData'
 import { t } from '../../data/translations'
 
 export default function DailyScreen() {
@@ -20,7 +20,7 @@ export default function DailyScreen() {
         <AnimatedSection>
           <header style={styles.hero}>
             <div style={styles.sun} className="animate-breathe" />
-            <p style={styles.eyebrow}>Fajr serenity</p>
+            <p style={styles.eyebrow}>{t(locale, 'daily.eyebrow')}</p>
             <h1 style={styles.greeting}>
               {t(locale, 'daily.greeting')}{user?.name ? `, ${user.name}` : ''}
             </h1>
@@ -38,8 +38,8 @@ export default function DailyScreen() {
           <GlassCard style={styles.ayahCard}>
             <div style={styles.ayahBadge}>{t(locale, 'daily.ayahBadge')}</div>
             <p style={styles.ayahArabic}>{content.ayah}</p>
-            <p style={styles.ayahTranslation}>"{content.ayah_translation}"</p>
-            <p style={styles.ayahSource}>{content.surah}</p>
+            <p style={styles.ayahTranslation}>"{localizedField(content, 'ayah_translation', locale)}"</p>
+            <p style={styles.ayahSource}>{localizedField(content, 'surah', locale)}</p>
           </GlassCard>
         </AnimatedSection>
 
@@ -49,7 +49,7 @@ export default function DailyScreen() {
               <div>
                 <div style={styles.smallBadge}>{t(locale, 'daily.dhikrBadge')}</div>
                 <p style={styles.dhikrArabic}>{content.dhikr}</p>
-                <p style={styles.dhikrTranslation}>{content.dhikr_translation}</p>
+                <p style={styles.dhikrTranslation}>{localizedField(content, 'dhikr_translation', locale)}</p>
               </div>
               <div style={styles.counterOrb}>
                 <span style={styles.dhikrNumber}>{dhikrCount}</span>
@@ -66,7 +66,7 @@ export default function DailyScreen() {
               onClick={() => !done && setDhikrCount(c => c + 1)}
               className="soft-interaction"
             >
-              {done ? 'Alhamdulillah, completed' : 'Tap gently to count'}
+              {done ? t(locale, 'daily.dhikrCompleted') : t(locale, 'daily.dhikrAction')}
             </button>
           </GlassCard>
         </AnimatedSection>
@@ -78,7 +78,7 @@ export default function DailyScreen() {
             </div>
             <div style={styles.sunnahCopy}>
               <div style={styles.smallBadgeGold}>{t(locale, 'daily.challengeBadge')}</div>
-              <p style={styles.sunnahText}>{content.challenge}</p>
+              <p style={styles.sunnahText}>{localizedField(content, 'challenge', locale)}</p>
             </div>
             <button
               style={{ ...styles.sunnahBtn, ...(challenged ? styles.sunnahBtnDone : {}) }}
@@ -93,7 +93,7 @@ export default function DailyScreen() {
         <AnimatedSection delay={320}>
           <GradientButton style={styles.enterBtn} onClick={enterApp}>
             <span>{t(locale, 'daily.enter')}</span>
-            <span>→</span>
+            <span>{locale === 'ar' ? '←' : '→'}</span>
           </GradientButton>
           <button style={styles.skipLink} onClick={enterApp}>{t(locale, 'daily.skip')}</button>
         </AnimatedSection>

@@ -227,7 +227,7 @@ const styles = {
   close: {
     position: 'absolute',
     top: 16,
-    right: 18,
+    insetInlineEnd: 18,
     width: 34,
     height: 34,
     borderRadius: 17,

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AnimatedSection, GlassCard, GradientButton, Page, PageHeader } from '../ui/Primitives'
 import { ThemedIcon, moneyIcons, needIcons, profileIcons } from '../ui/ThemedIcon'
 import { useApp } from '../../hooks/useApp'
-import { NEEDS, NEED_ICONS } from '../../data/mockData'
+import { NEEDS, NEED_ICONS, localizedField, formatMoney } from '../../data/mockData'
 import { t } from '../../data/translations'
 
 const NISAB_MAD = 5800
@@ -34,7 +34,7 @@ export default function ZakatScreen() {
   return (
     <Page variant="gold">
       <PageHeader
-        eyebrow="Amanah"
+        eyebrow={t(locale, 'zakat.eyebrow')}
         title={t(locale, 'zakat.title')}
         subtitle={t(locale, 'zakat.sub')}
       />
@@ -45,7 +45,7 @@ export default function ZakatScreen() {
             <span style={styles.nisabIcon}>
               <ThemedIcon icon={profileIcons.info} size={16} strokeWidth={2.2} />
             </span>
-            <span style={styles.nisabText}>{t(locale, 'zakat.nisab', { amount: NISAB_MAD.toLocaleString() })}</span>
+            <span style={styles.nisabText}>{t(locale, 'zakat.nisab', { amount: NISAB_MAD.toLocaleString(locale === 'ar' ? 'ar-MA' : 'en-US') })}</span>
           </GlassCard>
         </AnimatedSection>
 
@@ -54,7 +54,7 @@ export default function ZakatScreen() {
             <div style={styles.sectionHead}>
               <div>
                 <p style={styles.sectionKicker}>{t(locale, 'zakat.assets')}</p>
-                <h3 style={styles.sectionTitle}>Calculate with clarity</h3>
+                <h3 style={styles.sectionTitle}>{t(locale, 'zakat.clarityTitle')}</h3>
               </div>
               <div style={styles.ratePill}>2.5%</div>
             </div>
@@ -81,7 +81,7 @@ export default function ZakatScreen() {
             <div style={styles.summary}>
               <div style={styles.summaryRow}>
                 <span>{t(locale, 'zakat.totalAssets')}</span>
-                <strong>{total.toLocaleString()} MAD</strong>
+                <strong>{formatMoney(total, locale)}</strong>
               </div>
               <div style={styles.summaryRow}>
                 <span>{t(locale, 'zakat.nisabThreshold')}</span>
@@ -91,7 +91,7 @@ export default function ZakatScreen() {
               </div>
               <div style={styles.duePanel}>
                 <span>{t(locale, 'zakat.zakatDue')}</span>
-                <strong>{zakatDue.toLocaleString()} MAD</strong>
+                <strong>{formatMoney(zakatDue, locale)}</strong>
               </div>
             </div>
 
@@ -100,7 +100,7 @@ export default function ZakatScreen() {
                 {t(locale, 'zakat.distribute')}
               </GradientButton>
             ) : (
-              <p style={styles.noZakat}>{total > 0 ? t(locale, 'zakat.noZakat') : 'Enter your assets to begin.'}</p>
+              <p style={styles.noZakat}>{total > 0 ? t(locale, 'zakat.noZakat') : t(locale, 'zakat.start')}</p>
             )}
           </GlassCard>
         </AnimatedSection>
@@ -111,7 +111,7 @@ export default function ZakatScreen() {
               <div style={styles.sectionHead}>
                 <div>
                   <p style={styles.sectionKicker}>{t(locale, 'zakat.distributeTitle')}</p>
-                  <h3 style={styles.sectionTitle}>Send care where it is needed</h3>
+                  <h3 style={styles.sectionTitle}>{t(locale, 'zakat.sendTitle')}</h3>
                 </div>
               </div>
 
@@ -119,7 +119,7 @@ export default function ZakatScreen() {
                 <div style={styles.remainingRow}>
                   <span>{t(locale, 'zakat.remaining')}</span>
                   <strong style={{ color: remaining < 0 ? 'var(--rose-600)' : 'var(--teal-700)' }}>
-                    {remaining.toLocaleString()} MAD
+                    {formatMoney(remaining, locale)}
                   </strong>
                 </div>
                 <div style={styles.progressTrack}>
@@ -136,8 +136,8 @@ export default function ZakatScreen() {
                         <ThemedIcon icon={needIcons[need.type]} size={19} strokeWidth={2.1} />
                       </span>
                       <div style={styles.distCopy}>
-                        <div style={styles.distName}>{locale === 'ar' ? need.titleAr || need.title : need.title}</div>
-                        <div style={styles.distOrg}>{need.org} · {need.distance}</div>
+                        <div style={styles.distName}>{localizedField(need, 'title', locale)}</div>
+                        <div style={styles.distOrg}>{localizedField(need, 'org', locale)} · {localizedField(need, 'distance', locale)}</div>
                       </div>
                       {need.verified && <span style={styles.verified}>✓</span>}
                     </div>
@@ -156,7 +156,7 @@ export default function ZakatScreen() {
 
               <div style={styles.totalAssigned}>
                 <span>{t(locale, 'zakat.totalAssigned')}</span>
-                <strong>{distributed.toLocaleString()} MAD</strong>
+                <strong>{formatMoney(distributed, locale)}</strong>
               </div>
 
               <GradientButton
@@ -177,7 +177,7 @@ export default function ZakatScreen() {
                 <ThemedIcon icon={profileIcons.supported} size={34} strokeWidth={2} />
               </div>
               <h3 style={styles.confirmTitle}>{t(locale, 'zakat.confirmationTitle')}</h3>
-              <p style={styles.confirmText}>{t(locale, 'zakat.confirmationText', { amount: distributed.toLocaleString() })}</p>
+              <p style={styles.confirmText}>{t(locale, 'zakat.confirmationText', { amount: distributed.toLocaleString(locale === 'ar' ? 'ar-MA' : 'en-US') })}</p>
               <p style={styles.confirmSub}>{t(locale, 'zakat.confirmationSub')}</p>
             </GlassCard>
           </AnimatedSection>
@@ -203,7 +203,7 @@ const styles = {
   inputRow: { display: 'grid', gridTemplateColumns: '34px 1fr 104px', gap: 10, alignItems: 'center', padding: '10px', borderRadius: 22, background: 'rgba(255,255,255,0.58)' },
   inputIcon: { width: 34, height: 34, borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(22,155,125,0.08)' },
   inputLabel: { fontSize: 13, color: 'var(--ink-80)', fontWeight: 700 },
-  input: { padding: '10px 12px', textAlign: 'right', fontSize: 13, borderRadius: 16 },
+  input: { padding: '10px 12px', textAlign: 'end', fontSize: 13, borderRadius: 16 },
   summary: { marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(16,34,31,0.07)' },
   summaryRow: { display: 'flex', justifyContent: 'space-between', gap: 12, color: 'var(--ink-60)', fontSize: 13, padding: '5px 0' },
   duePanel: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 10, padding: '14px', borderRadius: 22, background: 'linear-gradient(135deg, rgba(22,155,125,0.12), rgba(212,160,23,0.11))', color: 'var(--teal-900)', fontSize: 13 },
@@ -221,7 +221,7 @@ const styles = {
   distName: { fontSize: 13, color: 'var(--ink)', fontWeight: 800 },
   distOrg: { fontSize: 11, color: 'var(--ink-60)', marginTop: 2 },
   verified: { width: 22, height: 22, borderRadius: 11, background: 'rgba(22,155,125,0.14)', color: 'var(--teal-700)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900 },
-  distInput: { padding: '11px 12px', textAlign: 'right', fontSize: 13 },
+  distInput: { padding: '11px 12px', textAlign: 'end', fontSize: 13 },
   totalAssigned: { display: 'flex', justifyContent: 'space-between', padding: 14, borderRadius: 22, background: 'rgba(16,34,31,0.04)', color: 'var(--ink-60)', fontSize: 13, marginTop: 12 },
   confirmation: { padding: '2rem 1.4rem', textAlign: 'center' },
   confirmIcon: { width: 64, height: 64, borderRadius: 28, margin: '0 auto 12px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(22,155,125,0.1)', color: 'var(--teal-800)' },

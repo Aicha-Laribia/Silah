@@ -18,14 +18,45 @@ export const translations = {
       thanks: 'JazakAllahu Khairan',
       modalTitle: 'Request help',
       needType: {
-        blood: 'Blood donation', food: 'Food support', medical: 'Medical support', orphan: 'Orphan care', shelter: 'Shelter aid', student: 'Student support', funeral: 'Funeral aid', traveler: 'Traveler support', women: 'Women’s needs'
+        blood: 'Blood donation', food: 'Food support', medical: 'Medical support', orphan: 'Orphan care', shelter: 'Shelter aid', student: 'Student support', funeral: 'Funeral aid', traveler: 'Traveler support', translate: 'Translation', transport: 'Transport', tutor: 'Tutoring', women: 'Women’s needs'
       },
       modalHint: 'Your request will be reviewed before appearing on the map.',
       placeholder: 'Describe the need clearly and honestly. Allah is witness.',
       noNeeds: 'No needs found near you',
       verifiedOrganisation: 'Verified Organisation',
       masjidVouched: 'Masjid-vouched',
-      urgent: 'Urgent'
+      urgent: 'Urgent',
+      urgentCount: '{urgent} urgent · {total} total nearby',
+      modes: { all: 'All', money: 'Fund', skill: 'Time' },
+      legend: { urgent: 'Urgent', shield: 'Shield', time: 'Time' },
+      trustNode: 'Trust Node',
+      timeOnly: 'Time Only',
+      confirmed: 'Confirmed',
+      feature: {
+        dignity: 'Dignity Shield Active',
+        blood: 'Blood Ping: {bloodType} nearby',
+        time: 'Time Waqf: {time}',
+        grant: 'AI-Verified Grant'
+      },
+      receipt: {
+        title: 'AI Receipt Verification',
+        invoice: '{type}',
+        amount: 'Verified amount',
+        lock: 'Funds locked — released directly to the {type}.'
+      },
+      dignity: {
+        title: 'Sitr — Privacy Preserved',
+        text: "Verified offline by {node}. The family's identity is completely hidden.",
+        quote: "Your left hand won't know what your right hand gives."
+      },
+      request: {
+        sub: 'Individual requests go through a Trust Node (Masjid) to protect your identity.',
+        shield: 'Your name will never appear on the map. The Masjid posts anonymously on your behalf via Sitr.',
+        selectNeed: 'Select type of need…',
+        selectNode: 'Choose your local Trust Node…',
+        textarea: 'Describe your situation honestly. This goes only to the Trust Node offline, never to the public.',
+        send: 'Send to Trust Node →'
+      }
     },
     login: {
       heading: 'One ummah. No one left behind.',
@@ -55,8 +86,11 @@ export const translations = {
     },
     daily: {
       greeting: 'السَّلَامُ عَلَيْكُمْ',
+      eyebrow: 'Fajr serenity',
       ayahBadge: 'Ayah of the day',
       dhikrBadge: 'Daily Dhikr',
+      dhikrCompleted: 'Alhamdulillah, completed',
+      dhikrAction: 'Tap gently to count',
       challengeBadge: 'Sunnah challenge',
       complete: '✓ Alhamdulillah — completed',
       count: 'Tap to count — اللهم اجعلنا من الذاكرين',
@@ -66,14 +100,27 @@ export const translations = {
       skip: 'Skip for now',
     },
     profile: {
-      impactTitle: 'Your impact',
-      badgesTitle: 'Badges — أوسمة',
-      impactNote: 'Impact is private. Only you can see these numbers. Your deeds are between you and Allah.',
-      badgeNote: 'Badges show trust and reliability — not competition. No leaderboards. No rankings.',
+      tabs: { daily: 'Daily', impact: 'Impact', badges: 'Badges' },
+      stats: { supported: 'Supported', answered: 'Answered', events: 'Events' },
+      identity: { defaultName: 'Muslim Sister/Brother' },
+      impactTitle: 'Sadaqah Jariyah',
+      impactSub: 'Your ongoing ripple effect',
+      livesTouched: '{count} Lives Touched',
+      status: { resolved: '✓ Resolved', ongoing: '↻ Ongoing' },
+      checklist: {
+        title: "Today's Spiritual Goals",
+        addGoalPlaceholder: 'Add personal goal...',
+        addGoalBtn: 'Add personal goal',
+        viewInsights: 'View Weekly Insights',
+      },
+      report: { title: 'Weekly Report' },
+      badgesTitle: 'Badges',
+      badgeNote: 'Badges reflect trust — not competition. No leaderboards.',
+      settingsTitle: 'App Settings',
+      signOut: 'Sign Out',
+      trusted: 'Masjid-vouched',
       account: 'Account',
       settings: { notifications: 'Notifications', location: 'My location', masjid: 'My masjid', language: 'Language' },
-      signOut: 'Sign out',
-      trusted: 'Masjid-vouched'
     },
     events: {
       title: 'Events — فعاليات',
@@ -88,6 +135,7 @@ export const translations = {
       join: 'Join & earn ajr',
       joined: '✓ Joined — earn ajr',
       modalTitle: 'Organise an event',
+      eyebrow: 'Community',
       selectPlaceholder: 'Type of event…',
       eventTitle: 'Event title',
       location: 'Location / Masjid name',
@@ -125,13 +173,56 @@ export const translations = {
       confirm: 'Confirm Zakat distribution',
       confirmationTitle: 'JazakAllahu Khairan',
       confirmationText: 'Your Zakat of {amount} MAD has been recorded and will be distributed to your chosen recipients. May Allah accept it and bless your wealth.',
-      confirmationSub: 'Funds are held in escrow and released upon recipient confirmation. You will receive an anonymised impact update. No public announcement is made — your deed is between you and Allah.'
+      confirmationSub: 'Funds are held in escrow and released upon recipient confirmation. You will receive an anonymised impact update. No public announcement is made — your deed is between you and Allah.',
+      eyebrow: 'Amanah',
+      clarityTitle: 'Calculate with clarity',
+      sendTitle: 'Send care where it is needed',
+      start: 'Enter your assets to begin.'
     },
     roles: {
       muslim: { label: 'Individual', ar: 'فرد', desc: 'Ask for support, give quietly, or join community care.', descAr: 'اطلب الدعم أو ساعد بهدوء أو شارك في رعاية المجتمع.' },
       masjid: { label: 'Masjid care team', ar: 'فريق المسجد', desc: 'Verify local needs and coordinate trusted support.', descAr: 'توثيق الاحتياجات المحلية وتنسيق الدعم الموثوق.' },
       org: { label: 'Charity organisation', ar: 'منظمة خيرية', desc: 'Publish verified cases with dignity and clarity.', descAr: 'نشر الحالات الموثقة بكرامة ووضوح.' },
       hospital: { label: 'Hospital or clinic', ar: 'مستشفى أو عيادة', desc: 'Share urgent medical needs with the community.', descAr: 'مشاركة الاحتياجات الطبية العاجلة مع المجتمع.' }
+    },
+    receipts: {
+      pharmacy: 'Pharmacy invoice',
+      university: 'University invoice',
+      funeral_home: 'Funeral home invoice'
+    },
+    categories: {
+      salah: 'Prayers',
+      ibadah: 'Worship',
+      giving: 'Charity',
+      sunnah: 'Sunnah',
+      custom: 'Personal'
+    },
+    checklist: {
+      fajr: 'Fajr on time',
+      dhuhr: 'Dhuhr prayer',
+      asr: 'Asr prayer',
+      maghrib: 'Maghrib prayer',
+      isha: 'Isha prayer',
+      quran: 'Read Quran (1 page min)',
+      dhikr: 'Morning/Evening adhkar',
+      sadaqa: 'Give any sadaqa today',
+      sunnah_challenge: 'Daily Sunnah challenge'
+    },
+    badges: {
+      donor: 'Blood donor',
+      helper: 'Regular helper',
+      shield: 'Dignity guard',
+      waqf: 'Time Waqf',
+      zakat: 'Zakat giver',
+      salah_regular: 'Jama\'a regular'
+    },
+    impact: {
+      student_title: 'Student you funded',
+      family_title: 'Anonymous family',
+      blood_title: 'Blood donation',
+      resolved: 'Resolved',
+      ongoing: 'Ongoing',
+      donor: 'Donor'
     }
   },
   ar: {
@@ -153,14 +244,45 @@ export const translations = {
       thanks: 'جزاك الله خيرًا',
       modalTitle: 'طلب مساعدة',
       needType: {
-        blood: 'تبرع بالدم', food: 'مساعدة غذائية', medical: 'مساعدة طبية', orphan: 'رعاية الأيتام', shelter: 'مساعدة سكنية', student: 'دعم الطالب', funeral: 'مساعدة جنازة', traveler: 'دعم المسافر', women: 'احتياجات النساء'
+        blood: 'تبرع بالدم', food: 'مساعدة غذائية', medical: 'مساعدة طبية', orphan: 'رعاية الأيتام', shelter: 'مساعدة سكنية', student: 'دعم الطالب', funeral: 'مساعدة جنازة', traveler: 'دعم المسافر', translate: 'ترجمة', transport: 'نقل', tutor: 'تدريس', women: 'احتياجات النساء'
       },
       modalHint: 'سيتم مراجعة طلبك قبل ظهوره على الخريطة.',
       placeholder: 'صف الحاجة بوضوح وأمانة. الله شهيد.',
       noNeeds: 'لا توجد احتياجات قريبة منك',
       verifiedOrganisation: 'منظمة موثقة',
       masjidVouched: 'موثق من المسجد',
-      urgent: 'عاجل'
+      urgent: 'عاجل',
+      urgentCount: '{urgent} عاجلة · {total} حالة قريبة',
+      modes: { all: 'الكل', money: 'الأموال', skill: 'الوقت' },
+      legend: { urgent: 'عاجل', shield: 'ستر', time: 'وقت' },
+      trustNode: 'نقطة ثقة',
+      timeOnly: 'وقت فقط',
+      confirmed: 'تم التأكيد',
+      feature: {
+        dignity: 'حماية الكرامة مفعلة',
+        blood: 'تنبيه دم: {bloodType} قريب',
+        time: 'وقف الوقت: {time}',
+        grant: 'منحة موثقة بالذكاء الاصطناعي'
+      },
+      receipt: {
+        title: 'توثيق الفاتورة بالذكاء الاصطناعي',
+        invoice: '{type}',
+        amount: 'المبلغ الموثق',
+        lock: 'الأموال محفوظة وتُفرج مباشرة إلى {type}.'
+      },
+      dignity: {
+        title: 'ستر - الخصوصية محفوظة',
+        text: 'تم التحقق خارج التطبيق من {node}. هوية العائلة مخفية بالكامل.',
+        quote: 'حتى لا تعلم شمالك ما أنفقت يمينك.'
+      },
+      request: {
+        sub: 'طلبات الأفراد تمر عبر نقطة ثقة (مسجد) لحماية هويتك.',
+        shield: 'لن يظهر اسمك أبدًا على الخريطة. ينشر المسجد الطلب مجهولًا نيابة عنك عبر الستر.',
+        selectNeed: 'اختر نوع الحاجة…',
+        selectNode: 'اختر نقطة الثقة المحلية…',
+        textarea: 'صف حالتك بصدق. يصل الوصف فقط إلى نقطة الثقة خارج التطبيق ولا يظهر للعامة.',
+        send: 'إرسال إلى نقطة الثقة ←'
+      }
     },
     login: {
       heading: 'أمة واحدة. لا يترك أحد وراءها.',
@@ -190,8 +312,11 @@ export const translations = {
     },
     daily: {
       greeting: 'السَّلَامُ عَلَيْكُمْ',
+      eyebrow: 'السكينة الفجرية',
       ayahBadge: 'آية اليوم',
       dhikrBadge: 'الذكر اليومي',
+      dhikrCompleted: 'الحمد لله، اكتملت',
+      dhikrAction: 'اضغط بلطف للعد',
       challengeBadge: 'تحدي السنة',
       complete: '✓ الحمد لله — اكتملت',
       count: 'اضغط للعد — اللهم اجعلنا من الذاكرين',
@@ -201,14 +326,27 @@ export const translations = {
       skip: 'تخطي الآن'
     },
     profile: {
-      impactTitle: 'تأثيرك',
-      badgesTitle: 'أوسمة',
-      impactNote: 'التأثير خاص. فقط يمكنك رؤية هذه الأرقام. عملك بينك وبين الله.',
-      badgeNote: 'الأوسمة تظهر الثقة والموثوقية — ليست منافسة. لا يوجد لوحات صدارة.',
+      tabs: { daily: 'اليومي', impact: 'الأثر', badges: 'الأوسمة' },
+      stats: { supported: 'حالات مدعومة', answered: 'استجابة', events: 'مشاركة' },
+      identity: { defaultName: 'أخ/أخت مسلم' },
+      impactTitle: 'صدقة جارية',
+      impactSub: 'أثرك المستمر في الدنيا',
+      livesTouched: '{count} حياة أثرت فيها',
+      status: { resolved: '✓ اكتملت', ongoing: '↻ جارية' },
+      checklist: {
+        title: 'أهداف اليوم الروحية',
+        addGoalPlaceholder: 'إضافة هدف شخصي...',
+        addGoalBtn: 'إضافة هدف',
+        viewInsights: 'عرض تقرير الأسبوع',
+      },
+      report: { title: 'التقرير الأسبوعي' },
+      badgesTitle: 'الأوسمة',
+      badgeNote: 'الأوسمة تعكس الثقة والموثوقية — ليست للمنافسة. لا توجد لوحات صدارة.',
+      settingsTitle: 'إعدادات التطبيق',
+      signOut: 'تسجيل الخروج',
+      trusted: 'موثق من المسجد',
       account: 'الحساب',
       settings: { notifications: 'الإشعارات', location: 'موقعي', masjid: 'مسجدي', language: 'اللغة' },
-      signOut: 'تسجيل الخروج',
-      trusted: 'موثق من المسجد'
     },
     events: {
       title: 'فعاليات',
@@ -223,6 +361,7 @@ export const translations = {
       join: 'انضم واكسب أجر',
       joined: '✓ انضممت — اكسب أجر',
       modalTitle: 'نظم حدثًا',
+      eyebrow: 'المجتمع',
       selectPlaceholder: 'نوع الحدث…',
       eventTitle: 'عنوان الحدث',
       location: 'الموقع / اسم المسجد',
@@ -245,7 +384,7 @@ export const translations = {
         investments: 'الاستثمارات'
       },
       placeholderAmount: '0 د.م',
-      nisab: 'النباب اليوم ≈ {amount} د.م (معيار الفضة). الزكاة 2.5% من إجمالي الأموال المحتفظ بها سنة هجرية.',
+      nisab: 'النصاب اليوم ≈ {amount} د.م (معيار الفضة). الزكاة 2.5% من إجمالي الأموال المحتفظ بها سنة هجرية.',
       assets: 'أصولك الزكوية (د.م)',
       totalAssets: 'إجمالي الأصول',
       nisabThreshold: 'حد النصاب',
@@ -260,14 +399,58 @@ export const translations = {
       confirm: 'تأكيد توزيع الزكاة',
       confirmationTitle: 'جزاك الله خيرًا',
       confirmationText: 'زكاتك بقيمة {amount} د.م تم تسجيلها وسيتم توزيعها على المستفيدين الذين اخترتهم. نسأل الله قبولها وبركة المال.',
-      confirmationSub: 'الأموال محفوظة في الأمانة وتُفرج بعد تأكيد المستفيد. ستحصل على تحديث أثر مجهول. لا يوجد إعلان عام — عملك بينك وبين الله.'
+      confirmationSub: 'الأموال محفوظة في الأمانة وتُفرج بعد تأكيد المستفيد. ستحصل على تحديث أثر مجهول. لا يوجد إعلان عام — عملك بينك وبين الله.',
+      eyebrow: 'أمانة',
+      clarityTitle: 'احسب بوضوح',
+      sendTitle: 'أرسل الرعاية حيث توجد الحاجة',
+      start: 'أدخل أصولك للبدء.'
     },
     roles: {
       muslim: { label: 'Individual', ar: 'فرد', desc: 'Ask for support, give quietly, or join community care.', descAr: 'اطلب الدعم أو ساعد بهدوء أو شارك في رعاية المجتمع.' },
       masjid: { label: 'Masjid care team', ar: 'فريق المسجد', desc: 'Verify local needs and coordinate trusted support.', descAr: 'توثيق الاحتياجات المحلية وتنسيق الدعم الموثوق.' },
       org: { label: 'Charity organisation', ar: 'منظمة خيرية', desc: 'Publish verified cases with dignity and clarity.', descAr: 'نشر الحالات الموثقة بكرامة ووضوح.' },
-      hospital: { label: 'Hospital or clinic', ar: 'مستشفى أو عيادة', desc: 'Share urgent medical needs with the community.', descAr: 'مشاركة الاحتياجات الطبية العاجلة مع المجتمع.' }
-    }
+      hospital: { label: 'Hospital or clinic', ar: 'مستشفى أو عيادة', desc: 'Share urgent medical needs with the community.', descAr: 'مشاركة الاحتياجات الطبية العاجلة مع المجتمع.' }    },
+    receipts: {
+      pharmacy: 'فاتورة الصيدلية',
+      university: 'فاتورة الجامعة',
+      funeral_home: 'فاتورة دار التجهيز'
+    },
+    categories: {
+      salah: 'الصلوات',
+      ibadah: 'العبادات',
+      giving: 'الصدقات',
+      sunnah: 'السنة',
+      custom: 'شخصي'
+    },
+    checklist: {
+      fajr: 'الفجر بالوقت',
+      dhuhr: 'صلاة الظهر',
+      asr: 'صلاة العصر',
+      maghrib: 'صلاة المغرب',
+      isha: 'صلاة العشاء',
+      quran: 'قراءة القرآن (صفحة واحدة)',
+      dhikr: 'أذكار الصباح والمساء',
+      sadaqa: 'أعط الصدقة اليوم',
+      sunnah_challenge: 'تحدي السنة اليومي'
+    },
+    badges: {
+      donor: 'متبرع دم',
+      helper: 'مساعد منتظم',
+      shield: 'حارس الكرامة',
+      waqf: 'وقف الوقت',
+      zakat: 'مؤدي الزكاة',
+      salah_regular: 'منتظم الجماعة'
+    },
+    impact: {
+      student_title: 'الطالب الذي مولته',
+      family_title: 'عائلة مجهولة',
+      blood_title: 'تبرع دموي',
+      resolved: 'تمت',
+      ongoing: 'جارية',
+      donor: 'متبرع',
+      
+      }
+    
   }
 }
 
@@ -280,7 +463,7 @@ export function t(locale, path, vars = {}) {
   }
   let text = typeof current === 'string' ? current : path
   Object.entries(vars).forEach(([key, value]) => {
-    text = text.replace(new RegExp(`\{${key}\}`, 'g'), value)
+    text = text.replace(new RegExp(`\\{${key}\\}`, 'g'), value)
   })
   return text
 }
