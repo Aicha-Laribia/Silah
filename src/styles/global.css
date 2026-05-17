@@ -1,0 +1,369 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Primary — balanced teal and forest green palette */
+  --green-950: #0A1F14;
+  --green-900: #0F2D1C;
+  --green-800: #1A4A2E;
+  --green-700: #1E6B3C;
+  --green-600: #2D8653;
+  --green-500: #3AA86A;
+  --green-400: #5DC487;
+  --green-200: #A8E6C0;
+  --green-100: #D4F3E2;
+  --green-50:  #EFF9F4;
+
+  /* Teal accent */
+  --teal-950: #052d28;
+  --teal-900: #064b40;
+  --teal-800: #0a6e5f;
+  --teal-700: #0c7c6d;
+  --teal-600: #12806f;
+  --teal-500: #169b7d;
+  --teal-400: #3cb699;
+  --teal-300: #66cfb0;
+  --teal-200: #a4e6d7;
+  --teal-100: #d6f4ec;
+  --teal-50:  #effaf5;
+
+  /* Gold — warm, spiritual */
+  --gold-700: #92650A;
+  --gold-600: #B8820D;
+  --gold-500: #D4A017;
+  --gold-400: #E8B93A;
+  --gold-200: #F5D87A;
+  --gold-100: #FAF0C0;
+  --gold-50:  #FFFDF0;
+
+  /* Sapphire — calm accent */
+  --blue-700: #1A3A6B;
+  --blue-600: #1E52A0;
+  --blue-500: #2E6FD4;
+  --blue-200: #9DC4F0;
+  --blue-100: #D4E8FA;
+  --blue-50:  #EEF5FD;
+
+  /* Rose — warmth */
+  --rose-600: #9B2335;
+  --rose-400: #E05470;
+  --rose-100: #FADADF;
+  --rose-50:  #FEF2F4;
+
+  /* Neutrals */
+  --ink:       #10221F;
+  --ink-80:    rgba(16,34,31,0.8);
+  --ink-60:    rgba(16,34,31,0.6);
+  --ink-30:    rgba(16,34,31,0.3);
+  --ink-20:    rgba(16,34,31,0.2);
+  --ink-10:    rgba(16,34,31,0.12);
+  
+  /* UPDATED: Warmer, softer surface */
+  --surface:   #F7F4EE;
+  --surface-2: #FFFFFF;
+  --white:     #FFFFFF;
+  --red-600:   #C53030;
+
+  /* Atmospheric Gradients */
+  --bg-gradient: linear-gradient(180deg, #FAF8F3 0%, #F4F0E8 40%, #EEF5F1 100%);
+
+  /* Pastels for login */
+  --pastel-mint:   #C8EDD8;
+  --pastel-sage:   #B8D4C0;
+  --pastel-cream:  #F5EDD8;
+  --pastel-sky:    #C8DFF0;
+  --pastel-rose:   #F0D0D8;
+  --pastel-lavender: #DDD8F0;
+
+  --font-arabic: 'Amiri', serif;
+  --font-body:   'DM Sans', sans-serif;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+
+  /* UPDATED: Softer, premium atmospheric shadows */
+  --shadow-sm: 0 2px 8px rgba(15,45,28,0.04);
+  --shadow-md: 0 8px 24px rgba(15,45,28,0.07);
+  --shadow-lg: 0 18px 45px rgba(15,45,28,0.1);
+}
+
+html, body, #root {
+  min-height: 100%;
+  height: 100%;
+  font-family: var(--font-body);
+  /* UPDATED: Breathe life into the background */
+  background: var(--bg-gradient);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* UPDATED: Subtle Noise Texture for luxury feel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/noise.png");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999; /* Ensure it stays on top subtly */
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(16,34,31,0.42);
+}
+
+[dir="rtl"] {
+  direction: rtl;
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--green-200); border-radius: 99px; }
+
+/* Leaflet */
+.leaflet-container { font-family: var(--font-body) !important; background: transparent !important; }
+.leaflet-control-attribution { display: none !important; }
+.leaflet-control-zoom a {
+  color: var(--ink) !important;
+  background: var(--white) !important;
+  border-color: var(--ink-10) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* ── Utilities ── */
+/* UPDATED: Glassmorphism */
+.glass {
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.glass-card {
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0));
+  pointer-events: none;
+}
+
+.soft-interaction:hover {
+  transform: translateY(-2px);
+}
+
+.soft-interaction:active {
+  transform: scale(0.98);
+}
+
+.premium-input {
+  width: 100%;
+  border: 1px solid rgba(16,34,31,0.08);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.72);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.premium-input:focus {
+  background: rgba(255,255,255,0.95);
+  border-color: rgba(22,155,125,0.38);
+  box-shadow: 0 0 0 4px rgba(22,155,125,0.08);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-8px) rotate(1deg); }
+  66%       { transform: translateY(-4px) rotate(-1deg); }
+}
+
+/* UPDATED: Soulful Animations */
+@keyframes breathe {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.95; }
+}
+@keyframes softFloat {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 14px 28px rgba(22,155,125,0.2); }
+  50% { box-shadow: 0 18px 38px rgba(22,155,125,0.32); }
+}
+@keyframes shimmerSoft {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(120%); }
+}
+
+.animate-fadeUp   { animation: fadeUp   0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-fadeIn   { animation: fadeIn   0.4s ease forwards; }
+.animate-scaleIn  { animation: scaleIn  0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-slideUp  { animation: slideUp  0.4s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-breathe  { animation: breathe 4s ease-in-out infinite; }
+.animate-softFloat { animation: softFloat 3s ease-in-out infinite; }
+.animate-glowPulse { animation: glowPulse 3.5s ease-in-out infinite; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.35s; }
+
+.map-wrap {
+  position: relative;
+}
+
+.map-header {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.map-header > div {
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.map-filters-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  padding: 0 2px;
+  pointer-events: none;
+}
+
+.map-filters-overlay .soft-interaction {
+  pointer-events: auto;
+  margin: 0 6px 6px 0;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.map-count-overlay {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 100px;
+  padding: 14px 16px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: auto;
+}
+
+.map-count-overlay span {
+  min-width: 0;
+}
+
+.map-need-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  bottom: 92px;
+  max-width: none;
+}
+
+@media (max-width: 640px) {
+  .map-header {
+    align-items: flex-start;
+  }
+
+  .map-header button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .map-filters-overlay {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .map-filters-overlay .soft-interaction {
+    font-size: 12px;
+    padding: 9px 10px;
+    margin: 0 6px 6px 0;
+  }
+
+  .map-count-overlay {
+    bottom: 96px;
+    padding: 12px 14px;
+  }
+
+  .map-count-overlay span {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .map-need-panel {
+    left: 12px;
+    right: 12px;
+    bottom: 86px;
+    border-radius: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+/* Hide scrollbar for horizontal scrolling containers */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
