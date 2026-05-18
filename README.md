@@ -19,7 +19,9 @@
 
 A mobile platform connecting Muslims in moments of need and worship — built on **Sitr** (dignity), **Sadaqa** (giving), and **Ukhuwwah** (brotherhood).
 
-![Ighatha Map](assets/screenshots/register.png)
+![register](assets/screenshots/register.png)
+
+![register](assets/screenshots/desktopscreen.png)
 
 > *"The believers in their mutual kindness are like one body."* — Sahih Muslim
 
@@ -50,6 +52,8 @@ Vulnerable individuals never post publicly. A Trust Node (Masjid or NGO) verifie
 ```
 Person in need → Visits imam → Verified offline → Posted anonymously → Appears on map
 ```
+
+![Dignity Shield](assets/screenshots/ti9a.png)
 
 ---
 
