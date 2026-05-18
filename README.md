@@ -19,9 +19,8 @@
 
 A mobile platform connecting Muslims in moments of need and worship — built on **Sitr** (dignity), **Sadaqa** (giving), and **Ukhuwwah** (brotherhood).
 
-![register](assets/screenshots/register.png)
-
-![register](assets/screenshots/desktopscreen.png)
+<img src="assets/screenshots/register.png" width="300"/>
+<img src="assets/screenshots/desktopscreen.png" width="300"/>
 
 > *"The believers in their mutual kindness are like one body."* — Sahih Muslim
 
@@ -42,7 +41,7 @@ A mobile platform connecting Muslims in moments of need and worship — built on
 ### 🗺️ Ighatha Map
 Live map of verified local needs. Filter by type, donate money or volunteer time.
 
-![Ighatha Map](assets/screenshots/mapn.png)
+<img src="assets/screenshots/mapn.png" width="300"/>
 
 ---
 
@@ -53,63 +52,62 @@ Vulnerable individuals never post publicly. A Trust Node (Masjid or NGO) verifie
 Person in need → Visits imam → Verified offline → Posted anonymously → Appears on map
 ```
 
-![Dignity Shield](assets/screenshots/ti9a.png)
+<img src="assets/screenshots/ti9a.png" width="300"/>
 
 ---
 
 ### ⏱️ Time Waqf
 No money? Donate your time. Offer a ride, tutoring, or translation — your time is Sadaqa.
 
-![Time Waqf](assets/screenshots/waqf.png)
+<img src="assets/screenshots/waqf.png" width="300"/>
 
 ---
 
 ### 🩸 Emergency Blood Ping
 Hospital posts urgent blood need → Silah pings only matching blood-type users within 5km instantly.
 
-![Blood Ping](assets/screenshots/bloo.png)
+<img src="assets/screenshots/bloo.png" width="300"/>
 
 ---
 
 ### 🤖 AI Micro-Grant Verification
 Upload a pharmacy bill or invoice → AI verifies and locks the donation to exactly that amount.
 
-
 ---
 
 ### ⚖️ Zakat Engine
 Calculate your Zakat, then distribute directly to verified needs on the map in one flow.
 
-![Zakat](assets/screenshots/ZAKA.png)
+<img src="assets/screenshots/ZAK.png" width="300"/>
 
 ---
 
 ### 🌙 Daily Companion
 Ayah of the day, Dhikr counter, and Sunnah challenge — every time you open the app.
 
-![Daily Screen](assets/screenshots/image.png)
+<img src="assets/screenshots/image.png" width="300"/>
 
 ---
 
 ### 🕌 Events
 Join Fajr Jama'a, halaqas, sisters' circles, and volunteer days near you.
 
-![Events](assets/screenshots/FUN1.png)
+<img src="assets/screenshots/FUN1.png" width="300"/>
 
 ---
 
 ### 🌳 Impact Tree
 After you give, the app updates you when the story progresses — months later.
 
-![Impact Tree](assets/screenshots/FUTURE.png)
+<img src="assets/screenshots/FUTURE.png" width="300"/>
 
 ---
 
 ### ✅ Daily Checklist + Weekly Report
 Track your 5 prayers, Quran, dhikr, and personal goals. Get a weekly improvement report.
 
-![Checklist](assets/screenshots/PROFILE.png)
-![Weekly Report](assets/screenshots/REP.png)
+<img src="assets/screenshots/PROFILE.png" width="300"/>
+<img src="assets/screenshots/REP.png" width="300"/>
 
 ---
 
@@ -182,6 +180,6 @@ MIT — see [LICENSE](LICENSE)
 
 <div align="center">
 
-*"وَتَعَاوَنُوا عَلَى الْبِرِّر وَالتَّقْوَىٰ"*
+*"وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ"*
 
 </div>
