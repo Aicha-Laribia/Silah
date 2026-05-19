@@ -20,7 +20,7 @@
 A mobile platform connecting Muslims in moments of need and worship — built on **Sitr** (dignity), **Sadaqa** (giving), and **Ukhuwwah** (brotherhood).
 
 <img src="assets/screenshots/register.png" width="300"/>
-<img src="assets/screenshots/desktopscreen.png" width="300"/>
+<img src="assets/screenshots/desktopscreen.png">
 
 > *"The believers in their mutual kindness are like one body."* — Sahih Muslim
 
